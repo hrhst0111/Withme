@@ -42,3 +42,7 @@ a {
   .change:hover{
     text-decoration:underline;
   }
+#start .login{
+      text-align: right;
+      font-size: 20px;
+  }
