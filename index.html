@@ -10,7 +10,10 @@
 
 </head>
 <body>
-<a href="index.html"><h1>실시간 운동친구 매칭앱 "Withme"</a></h1>
+<a href="index.html"><div id="start"><strong>실시간 운동친구 매칭앱 "Withme"</strong></a>
+        <div class="login">일반로그인</div> <!-- 여기에 띄어쓰기 한번 써보자. 써도 변화없음-->
+</div>
+
 <div id="move">
 <ul>
   <li><a href="1.html"> 어플 소개</a></li> 
@@ -58,6 +61,29 @@ s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
 <!--End of Tawk.to Script-->
-  
+<a href="javascript:kakaoLogin();"><img src="kakao.png"></a>
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<script>
+window.Kakao.init('ceb53c513c104e8eeca980ffdbfc66be');
+
+funtion kakaoLogin() {
+window.Kakao.Auth.login({
+    scope:'profile, account_email, gender, age_range',
+    success: function(authObj) {
+        console.log(authObj);
+        window.Kakao.API.request({
+            url:'/v2/user/me',
+            success: res => {
+                const kakao_account = res.kakao_account;
+                console.log(kakao_account);
+            }
+        });
+
+        
+    }
+});
+}
+</script> 
+
 </body>
 </html>
