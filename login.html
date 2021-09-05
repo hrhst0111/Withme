@@ -6,10 +6,14 @@
 </head>
 <body>
     <a href="javascript:kakaoLogin();"><img src="kakao.png"></a>
+    <a href="https://kauth.kakao.com/oauth/logout?client_id={975e17a610335f51a7dad38433cae228}&logout_redirect_uri={https://hrhst0111.github.io/web1/index.html}">
+    로그아웃</a>
     <script language="javascript">
     Kakao.Auth.authorize({
     redirectUri: '{https://hrhst0111.github.io/web1/index_logout.html}'
 }); //인가코드까지 받음. 이제 토큰 받을 코드 써보자
+        
+ curl -v -X GET "https://kauth.kakao.com/oauth/logout?client_id={975e17a610335f51a7dad38433cae228}&logout_redirect_uri={https://hrhst0111.github.io/web1/index.html}"
 
 POST /oauth/token HTTP/1.1
 Host: kauth.kakao.com
@@ -22,7 +26,7 @@ curl -v -X POST "https://kauth.kakao.com/oauth/token" \
  -d "code={AUTHORIZE_CODE}" //토큰 받기 완료
 
  Kakao.Auth.setAccessToken(ACCESS_TOKEN); //토큰할당
-
+        
  if (!Kakao.Auth.getAccessToken()) {
     console.log('Not logged in.');
     return;
