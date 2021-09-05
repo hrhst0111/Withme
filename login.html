@@ -2,7 +2,11 @@
 <html>
 <head>
 <meta charset="utf-8">
-<script language="javascript">
+<head>
+</head>
+<body>
+    <a href="javascript:kakaoLogin();"><img src="kakao.png"></a>
+    <script language="javascript">
     Kakao.Auth.authorize({
     redirectUri: '{https://hrhst0111.github.io/web1/index_logout.html}'
 }); //인가코드까지 받음. 이제 토큰 받을 코드 써보자
@@ -82,9 +86,6 @@ Kakao.Auth.createLoginButton({
   },
 }); //팝업화면으로 로그인 시키기
   </script>
-</head>
-<body>
-    <a href="javascript:kakaoLogin();"><img src="kakao.png"></a>
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
     <script>
  window.Kakao.init("ceb53c513c104e8eeca980ffdbfc66be");
