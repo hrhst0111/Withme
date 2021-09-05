@@ -12,7 +12,8 @@
     Kakao.Auth.authorize({
     redirectUri: '{https://hrhst0111.github.io/web1/index_logout.html}'
 }); //인가코드까지 받음. 이제 토큰 받을 코드 써보자
-        
+ GET /oauth/logout?client_id={975e17a610335f51a7dad38433cae228}&logout_redirect_uri={https://hrhst0111.github.io/web1/index.html} HTTP/1.1
+Host: kauth.kakao.com       
  curl -v -X GET "https://kauth.kakao.com/oauth/logout?client_id={975e17a610335f51a7dad38433cae228}&logout_redirect_uri={https://hrhst0111.github.io/web1/index.html}"
 
 POST /oauth/token HTTP/1.1
