@@ -3,27 +3,15 @@
     <meta charset="utf-8">
 </head>
 <body>
-<a href="javascript:loginWithKakao()">
+<a id="custom-login-btn" href="javascript:loginWithKakao()">
   <img src="kakao.png">
 </a>
-    <script type="text/javascript">
-  function loginWithKakao() {
-    Kakao.Auth.login({
-      success: function(authObj) {
-        alert(JSON.stringify(authObj))
-      },
-      fail: function(err) {
-        alert(JSON.stringify(err))
-      },
-    })
-  } //팝업 방식의 로그인 기능 구현
-    </script>
 <script src="https://developers.kakao.com/sdk/js/kakao.js"> //자바스크립트 sdk 포함
 </script> 
 <script>
 Kakao.init('ceb53c513c104e8eeca980ffdbfc66be');
 Kakao.isInitialized();// 자바스크립트 sdk 초기화 완료 
-POST /oauth/token HTTP/1.1
+
 Host: kauth.kakao.com
 Content-type: application/x-www-form-urlencoded;charset=utf-8
   curl -v -X POST "https://kauth.kakao.com/oauth/token" \
@@ -45,6 +33,18 @@ Content-type: application/x-www-form-urlencoded;charset=utf-8
         console.log(error);
     } //사용자 정보 가져오기
 });
+    <script type="text/javascript">
+  function loginWithKakao() {
+    Kakao.Auth.login({
+      success: function(authObj) {
+        alert(JSON.stringify(authObj))
+      },
+      fail: function(err) {
+        alert(JSON.stringify(err))
+      },
+    })
+  } //팝업 방식의 로그인 기능 구현
+    </script>
 </script>
 </body>
 </html>
