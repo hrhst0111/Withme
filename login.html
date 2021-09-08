@@ -6,6 +6,13 @@
 <a href="javascript:loginWithKakao()">
   <img src="kakao.png">
 </a>
+    <p id="token-result"></p>
+<script type="text/javascript">
+  function loginWithKakao() {
+    Kakao.Auth.authorize({
+      redirectUri: 'https://developers.kakao.com/tool/demo/oauth'
+    })
+  } </script>
 <script src="https://developers.kakao.com/sdk/js/kakao.js"> //자바스크립트 sdk 포함
 </script> 
 <script>
