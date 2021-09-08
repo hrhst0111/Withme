@@ -6,24 +6,20 @@
 <a href="javascript:loginWithKakao()">
   <img src="kakao.png">
 </a>
-    <p id="token-result"></p>
+<p id="token-result"></p>
+<script src="https://developers.kakao.com/sdk/js/kakao.js"> //자바스크립트 sdk 포함
+</script> 
+<script>
+Kakao.init('ceb53c513c104e8eeca980ffdbfc66be');
+Kakao.isInitialized();// 자바스크립트 sdk 초기화 완료
+</script> 
 <script type="text/javascript">
   function loginWithKakao() {
     Kakao.Auth.authorize({
       redirectUri: 'https://hrhst0111.github.io/web1/index_logout.html'
     })
   } </script>
-<script src="https://developers.kakao.com/sdk/js/kakao.js"> //자바스크립트 sdk 포함
-</script> 
-<script>
-Kakao.init('ceb53c513c104e8eeca980ffdbfc66be');
-Kakao.isInitialized(); // 자바스크립트 sdk 초기화 완료
-Kakao.Auth.authorize({
-    redirectUri: 'https://hrhst0111.github.io/web1/index_logout.html'
-  }); //인가코드 해당 uri에 전송 
-    POST /oauth/token HTTP/1.1
-Host: kauth.kakao.com
-Content-type: application/x-www-form-urlencoded;charset=utf-8
+  <script> 
   curl -v -X POST "https://kauth.kakao.com/oauth/token" \
  -H "Content-Type: application/x-www-form-urlencoded" \
  -d "grant_type=authorization_code" \
