@@ -1,34 +1,47 @@
 <!DOCTYPE html>
-<html>
 <head>
-<meta charset="utf-8">
-<head>
+    <meta charset="utf-8">
 </head>
 <body>
-    <a href="javascript:kakaoLogin();"><img src="kakao.png"></a>
-    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-    <script>
- window.Kakao.init("ceb53c513c104e8eeca980ffdbfc66be");
-<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-    <script>
- window.Kakao.init("ceb53c513c104e8eeca980ffdbfc66be");
-
-function kakaoLogin() {
-    window.Kakao.Auth.login({
-        scope:'profile_nickname, profile_image, account_email, gender',
-        success: function(authObj) {
-            console. log(authObj);
-            window.Kakao.API.request({
-                url:'/v2/user/me',
-                success: res => {
-                    const kakao_account = res.kakao_account;
-                    console.log(kakao_account);
-                }
-            });
-        }
-    });
-}
-</script>  
-    
-    </body>
-    </html>
+<a href="javascript:loginWithKakao()">
+  <img src="kakao.png">
+</a>
+<script src="https://developers.kakao.com/sdk/js/kakao.js"> //자바스크립트 sdk 포함
+</script> 
+<script>
+Kakao.init('ceb53c513c104e8eeca980ffdbfc66be');
+Kakao.isInitialized(); // 자바스크립트 sdk 초기화 완료
+Kakao.Auth.authorize({
+    redirectUri: 'https://hrhst0111.github.io/web1/index_logout.html'
+  }); //인가코드 해당 uri에 전송 
+  curl -v -X POST "https://kauth.kakao.com/oauth/token" \
+ -H "Content-Type: application/x-www-form-urlencoded" \
+ -d "grant_type=authorization_code" \
+ -d "client_id=975e17a610335f51a7dad38433cae228" \
+ --data-urlencode "redirect_uri=https://hrhst0111.github.io/web1/index_logout.html" \
+ -d "code={AUTHORIZE_CODE}" //RESP API KEY로 토큰 받기 요청
+ Kakao.API.request({
+    url: '/v2/user/me',
+    data: {
+        property_keys: ["kakao_account.email","kakao_account.gender","kakao_account.profile_nickname,
+        "kakao_account.profile_image"] //필수 OR 선택동의 항목만 포함 가능
+    },
+    success: function(response) {
+        console.log(response);
+    },
+    fail: function(error) {
+        console.log(error);
+    } //사용자 정보 가져오기
+});
+Kakao.Auth.createLoginButton({
+  container: '#CONTAINER_ID',
+  success: function(response) {
+    console.log(response);
+  },
+  fail: function(error) {
+    console.log(error);
+  }, //팝업 방식으로 로그인 창 띄우기
+});
+</script>
+</body>
+</html>
