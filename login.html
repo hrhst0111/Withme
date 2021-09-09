@@ -4,8 +4,8 @@
     <script src="https://developers.kakao.com/sdk/js/kakao.js"> //자바스크립트 sdk 포함
 </script> 
 <script>
-Kakao.init('ceb53c513c104e8eeca980ffdbfc66be');
-Kakao.isInitialized();// 자바스크립트 sdk 초기화 완료 
+window.Kakao.init('ceb53c513c104e8eeca980ffdbfc66be');
+window.Kakao.isInitialized();// 자바스크립트 sdk 초기화 완료 
     </script>
 </head>
 <body>
@@ -15,7 +15,7 @@ Kakao.isInitialized();// 자바스크립트 sdk 초기화 완료
     <p id="token-result"></p>
 <script type="text/javascript">
   function loginWithKakao() {
-    Kakao.Auth.authorize({
+    window.Kakao.Auth.authorize({
       redirectUri: 'https://developers.kakao.com/tool/demo/oauth'
     })
   } //해당 uri에서 인가코드 받음
@@ -29,7 +29,7 @@ Content-type: application/x-www-form-urlencoded;charset=utf-8
  -d "client_id=975e17a610335f51a7dad38433cae228" \
  --data-urlencode "redirect_uri=https://hrhst0111.github.io/web1/index_logout.html" \
  -d "code={AUTHORIZE_CODE}" //RESP API KEY로 토큰 받기 요청
- Kakao.API.request({
+ window.Kakao.API.request({
     url: '/v2/user/me',
     data: {
         property_keys: ["kakao_account.email","kakao_account.gender","kakao_account.profile_nickname,
@@ -44,7 +44,7 @@ Content-type: application/x-www-form-urlencoded;charset=utf-8
 });
     <script type="text/javascript">
   function loginWithKakao() {
-    Kakao.Auth.login({
+    window.Kakao.Auth.login({
       success: function(authObj) {
         alert(JSON.stringify(authObj))
       },
