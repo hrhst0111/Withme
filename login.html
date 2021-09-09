@@ -17,6 +17,7 @@ Kakao.isInitialized();// 자바스크립트 sdk 초기화 완료
   redirectUri: 'https://hrhst0111.github.io/web1/index_logout.html'
 }); //해당 uri에서 인가코드 받음
 
+POST /oauth/token HTTP/1.1
 Host: kauth.kakao.com
 Content-type: application/x-www-form-urlencoded;charset=utf-8
   curl -v -X POST "https://kauth.kakao.com/oauth/token" \
