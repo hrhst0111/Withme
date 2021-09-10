@@ -6,6 +6,7 @@
 <script>
 Kakao.init('ceb53c513c104e8eeca980ffdbfc66be');
 Kakao.isInitialized();// 자바스크립트 sdk 초기화 완료 
+    console.log(Kakao.isInitialized());
     </script>
 </head>
 <body>
@@ -17,7 +18,7 @@ Kakao.isInitialized();// 자바스크립트 sdk 초기화 완료
   function loginWithKakao() {
    Kakao.Auth.authorize({
       redirectUri: 'https://hrhst0111.github.io/web1/index_logout.html'
-    });
+    })
   } //해당 uri에서 인가코드 받음
 
   curl -v -X POST "https://kauth.kakao.com/oauth/token" \
