@@ -18,8 +18,8 @@
        Kakao.init('b9e85c6fb26beeac34aa685ec3d7e0a4');
      
         function loginWithKakao() {
-          Kakao.Auth.authorize({
-            redirectUri: 'http://127.0.0.1:5500/test.html',
+          Kakao.Auth.login({
+            redirectUri: 'http://127.0.0.1:5500/test2.html',
               scope: 'profile_nickname, profile_image, account_email, gender, age_range', //추가항목 동의받기
        
       success: function(authObj) { //로그인 성공 시 토큰을 받을 콜백 함수
