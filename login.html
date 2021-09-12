@@ -1,6 +1,9 @@
 <!DOCTYPE html>
+<html lang="ko">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://developers.kakao.com/sdk/js/kakao.js"> //자바스크립트 sdk 포함
 </script> 
 <script>
@@ -12,7 +15,6 @@ Kakao.isInitialized();// 자바스크립트 sdk 초기화 완료
     <a id="custom-login-btn" href="javascript:loginWithKakao()">
   <img src="kakao.png">
 </a>
-    <p id="token-result"></p>
 <script type="text/javascript">
   function loginWithKakao() {
    Kakao.Auth.login({
