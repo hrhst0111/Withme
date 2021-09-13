@@ -27,10 +27,14 @@
           
         Kakao.API.request({
     url: '/v2/user/scopes', //사용자 정보 가져오기
-    success: res => {
-        const kakao_account = res.kakao_account;
-        console.log(kakao_account);
-    } 
+    success: function(response) {
+        console.log(response);
+    },
+            url: '/v2/user/scopes', //동의내역 정보 확인(콘솔창)
+    success: function(response) {
+        console.log(response);
+    }
+            
     
     /*function(authObj) {
         console.log(authObj); 동의한 정보들 띄워줌
