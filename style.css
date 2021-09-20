@@ -45,12 +45,12 @@ a {
   .change:hover{
     text-decoration:underline;
   }
-  #start .login{
+  #start .go{
       text-align: left;
       display: grid;
       grid-template-columns: 300px 1fr;
   }
-  .login div{
+  .go div{
       text-align: right;
       font-size: 18px;
   }
