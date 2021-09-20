@@ -46,10 +46,16 @@ a {
     text-decoration:underline;
   }
   #start .login{
-      text-align: right;
-      font-size: 15px;
-  }
-#start .go{
       text-align: left;
+      display: grid;
+      grid-template-columns: 300px 1fr;
+  }
+  .login div{
+      text-align: right;
+      font-size: 18px;
+  }
+  h4{
+      margin: 10px;
+      
   }
 
