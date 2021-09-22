@@ -14,7 +14,8 @@ Kakao.isInitialized();// 자바스크립트 sdk 초기화 완료
 <body>
     <a id="custom-login-btn" href="javascript:loginWithKakao()">
   <img src="kakao.png">
-</a>
+</a> 
+    <a href="javascript:logout_kakao()">로그아웃</a>
 <script type="text/javascript">
   function loginWithKakao() {
    window.Kakao.Auth.login({
@@ -34,7 +35,17 @@ Kakao.isInitialized();// 자바스크립트 sdk 초기화 완료
     }
     
 });
-  }   //해야할 것: 연결 끊기 및 로그아웃 구현하기
+  }
+    function logout_kakao() {
+            if (!Kakao.Auth.getAccessToken()) {
+                console.log('Not logged in.');
+                return;
+            }
+            Kakao.Auth.logout(function () {
+                console.log(Kakao.Auth.getAccessToken());
+            });
+        }
+    //해야할 것: 연결 끊기 및 로그아웃 구현하기
 </script>
 </body>
 </html>
