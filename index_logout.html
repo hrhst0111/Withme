@@ -74,11 +74,11 @@ s0.parentNode.insertBefore(s1,s0);
 function logout_kakao() {
             if (!Kakao.Auth.getAccessToken()) {
                 console.log('Not logged in.');
-                window.location.href = 'https://hrhst0111.github.io/web1/';
                 return;
             }
             Kakao.Auth.logout(function () {
                 console.log('로그아웃 성공'+Kakao.Auth.getAccessToken());
+                window.location.href = 'https://hrhst0111.github.io/web1/';
             });
         }
     function discon() {
