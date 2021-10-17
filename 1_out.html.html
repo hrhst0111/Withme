@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title> 나만의 운동친구, Withme </title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="style.css"> 
+
+<!--이 link 태그는 스타일 코드 작성의 중복을 없애준 혁신적인 것! 페이지 전체에 대해 디자인을 바꾸고 싶다면 style.css
+에서 바꾸면 됨. 그럼 동시에 link 태그가 쓰여진 모든 페이지에 적용-->
+<script src="https://developers.kakao.com/sdk/js/kakao.js"> //자바스크립트 sdk 포함
+</script> 
+<script>
+window.Kakao.init('ceb53c513c104e8eeca980ffdbfc66be');
+Kakao.isInitialized();// 자바스크립트 sdk 초기화 완료 
+    </script>
+</head>
+<body>
+<a href="index.html"><div id=start><h1>실시간 운동친구 매칭앱 "Withme"</h1></a>
+        <div class=go>
+            <a href="room.html"><h4>시작하기</h4></a>
+        <div>
+            <a href="javascript:logout_kakao()"><br>로그아웃</a> 
+            <a href="javascript:discon()">연결끊기</a>
+        </div>
+    </div>
+    </div>
+
+<div id="move">
+<ul>
+  <li><a href="1_out.html"> 어플 소개</a></li> 
+  <li><a href="2_out.html"> 차별점</a></li>
+  <li><a href="3_out.html"> Business model</a></li>
+</ul>
+  <div>
+   <h2>Withme</h2> 이 어플리케이션은 당신이 <strong><u>언제, 어디서든</u> 함께할 수 있는 운동 메이트</strong>를 찾아줍니다. <br><br>
+
+   <a href="https://play.google.com/store/search?q=withme" target=_blank title="구글플레이에서 withme 설치" style="color:blue" class='change'>지금 바로 다운로드해보세요!</a><br><br>
+
+  <img src="running.jpg" width="50%">
+  </div>
+</div>
+
+<div id="disqus_thread"></div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://withme-1.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+    </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<!--Start of Tawk.to Script-->
+<script>
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/60d7104f65b7290ac638077f/1f941fdrs';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+       
+function logout_kakao() {
+            if (!Kakao.Auth.getAccessToken()) {
+                console.log('Not logged in.');
+                return;
+            }
+            Kakao.Auth.logout(function () {
+                console.log('로그아웃 성공'+Kakao.Auth.getAccessToken());
+                window.location.href = 'https://hrhst0111.github.io/web1/';
+            });
+        }
+    function discon() {
+                Kakao.API.request({
+                    url: '/v1/user/unlink',
+                    success: function (response) {
+                        console.log('연결끊기 성공'+response);
+                        window.location.href = 'https://hrhst0111.github.io/web1/';
+                    },
+                    fail: function (error) {
+                        console.log(error);
+                    },
+                });
+        }
+</script>
+<!--End of Tawk.to Script-->
+</body>
+</html>
