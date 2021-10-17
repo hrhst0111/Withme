@@ -14,7 +14,8 @@
         <div class=go>
             <a href="room.html"><h4>시작하기</h4></a>
         <div>
-            <a href="index.html"><br>로그아웃</a> 
+            <a href="javascript:logout_kakao()"><br>로그아웃</a> 
+            <a href="javascript:discon()">연결끊기</a>
         </div>
     </div>
     </div>
@@ -51,10 +52,10 @@
     s.setAttribute('data-timestamp', +new Date());
     (d.head || d.body).appendChild(s);
     })();
-</script>
+
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <!--Start of Tawk.to Script-->
-<script type="text/javascript">
+
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
 (function(){
 var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
@@ -64,6 +65,29 @@ s1.charset='UTF-8';
 s1.setAttribute('crossorigin','*');
 s0.parentNode.insertBefore(s1,s0);
 })();
+        
+function logout_kakao() {
+            if (!Kakao.Auth.getAccessToken()) {
+                console.log('Not logged in.');
+                window.location.href = 'https://hrhst0111.github.io/web1/';
+                return;
+            }
+            Kakao.Auth.logout(function () {
+                console.log('로그아웃 성공'+Kakao.Auth.getAccessToken());
+            });
+        }
+    function discon() {
+                Kakao.API.request({
+                    url: '/v1/user/unlink',
+                    success: function (response) {
+                        console.log('연결끊기 성공'+response);
+                        window.location.href = 'https://hrhst0111.github.io/web1/';
+                    },
+                    fail: function (error) {
+                        console.log(error);
+                    },
+                });
+        }
 </script>
 <!--End of Tawk.to Script-->
 </body>
