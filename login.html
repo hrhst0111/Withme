@@ -36,26 +36,7 @@ Kakao.isInitialized();// 자바스크립트 sdk 초기화 완료
     
 });
   }
-    function logout_kakao() {
-            if (!Kakao.Auth.getAccessToken()) {
-                console.log('Not logged in.');
-                return;
-            }
-            Kakao.Auth.logout(function () {
-                console.log('로그아웃 성공'+Kakao.Auth.getAccessToken());
-            });
-        }
-    function discon() {
-                Kakao.API.request({
-                    url: '/v1/user/unlink',
-                    success: function (response) {
-                        console.log('연결끊기 성공'+response);
-                    },
-                    fail: function (error) {
-                        console.log(error);
-                    },
-                });
-        }
+    
     //해야할 것: 연결 끊기 및 로그아웃 구현하기
 </script>
 </body>
