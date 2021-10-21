@@ -93,6 +93,18 @@ function logout_kakao() {
                     },
                 });
         }
+    function loginWithKakao() {          
+        window.Kakao.API.request({
+    url: '/v2/user/me', //사용자 정보 가져오기
+    success: res => {
+        const kakao_account = res.kakao_account;
+        console.log(kakao_account);
+        window.location.href='https://hrhst0111.github.io/web1/index_logout.html';
+    } 
+});
+    }
+    loginWithKakao();
+    
 </script>
 <!--End of Tawk.to Script-->
 </body>
