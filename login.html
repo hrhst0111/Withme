@@ -27,11 +27,12 @@ Kakao.isInitialized();// 자바스크립트 sdk 초기화 완료
           
         window.Kakao.API.request({
     url: '/v2/user/me', //사용자 정보 가져오기
-    success: res => {
-        const kakao_account = res.kakao_account;
-        console.log(kakao_account);
-        window.location.href='https://hrhst0111.github.io/web1/index_logout.html';
-    } 
+    data: {
+        property_keys: ["kakao_account.email","kakao_account.gender"]
+    },
+    success: function(response) {
+        console.log(response);
+    }
 });
     }
     
