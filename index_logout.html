@@ -117,5 +117,20 @@ function logout_kakao() {
     
 </script>
 <!--End of Tawk.to Script-->
+    <script>
+$(document).ready(function(){
+	$.ajax({
+		type: 'post',//데이터 전송 타입,
+		url : 'https://hrhst0111.github.io/web1/index_logout.html', //데이터를 주고받을 파일 주소 입력,
+		data: {"gender": "scope.gender"},//보내는 데이터, 
+		success: function(result){
+			alert("데이터 전송완료");//작업이 성공적으로 발생했을 경우
+		},
+		error:function(){  
+      alert("오류");   //에러가 났을 경우 실행시킬 코드
+		}
+	})
+});
+</script>
 </body>
 </html>
